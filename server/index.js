@@ -17,12 +17,12 @@ app.post("/upload", upload.single("file"), async (req, res) => {
 
     if (!vehicleData) {
       return res
-        .status(404)
+        .status(400)
         .json({ success: false, message: "Error: No vehicle parsed." });
     }
 
     if (!file) {
-      return res.status(404).json({
+      return res.status(400).json({
         success: false,
         message: "Error: No file uploaded.",
       });
@@ -31,6 +31,9 @@ app.post("/upload", upload.single("file"), async (req, res) => {
     fs.readFile(file.path, "utf-8", (err, logbook) => {
       if (err) {
         console.error(err);
+        return res
+          .status(500)
+          .json({ success: false, message: "Error: Unable to read file." });
       }
       return res.status(200).json({
         success: true,
