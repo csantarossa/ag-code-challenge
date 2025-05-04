@@ -1,0 +1,45 @@
+const express = require("express");
+const cors = require("cors");
+const multer = require("multer");
+const fs = require("fs");
+
+const app = express();
+const upload = multer({ dest: "uploads/" });
+const PORT = 8000;
+
+app.use(cors());
+app.use(express.json());
+
+app.post("/upload", upload.single("file"), async (req, res) => {
+  try {
+    const file = req.file;
+    const vehicleData = JSON.parse(req.body.vehicle);
+
+    if (!vehicleData) {
+      return res
+        .status(404)
+        .json({ success: false, message: "Error: No vehicle parsed." });
+    }
+
+    if (!file) {
+      return res.status(404).json({
+        success: false,
+        message: "Error: No file uploaded.",
+      });
+    }
+
+    fs.readFile(file.path, "utf-8", (err, logbook) => {
+      if (err) {
+        console.error(err);
+      }
+      return res.status(200).json({
+        success: true,
+        data: { vehicleData: vehicleData, logbook: logbook },
+      });
+    });
+  } catch (error) {
+    console.error(error);
+  }
+});
+
+app.listen(PORT, () => console.log(`Listening on Port ${PORT}...`));
