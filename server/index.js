@@ -37,7 +37,7 @@ app.post("/upload", upload.single("file"), async (req, res) => {
       }
       return res.status(200).json({
         success: true,
-        message: "yep it worked",
+        message: "Success",
         data: { vehicleData: vehicleData, logbook: logbook },
       });
     });
