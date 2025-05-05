@@ -13,7 +13,10 @@ export const FileInput = (props: {
       </label>
       <input
         onChange={(e) => {
-          if (!e.target.files) return;
+          if (!e.target.files) {
+            props.setFile(null);
+            return;
+          }
           props.setFile(e.target.files[0]);
         }}
         type="file"

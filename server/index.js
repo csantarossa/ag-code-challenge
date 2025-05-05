@@ -28,20 +28,22 @@ app.post("/upload", upload.single("file"), async (req, res) => {
       });
     }
 
-    fs.readFile(file.path, "utf-8", (err, logbook) => {
-      if (err) {
-        console.error(err);
+    fs.readFile(file.path, "utf-8", (error, logbook) => {
+      if (error) {
+        console.error(error);
         return res
           .status(500)
           .json({ success: false, message: "Error: Unable to read file." });
       }
       return res.status(200).json({
         success: true,
+        message: "yep it worked",
         data: { vehicleData: vehicleData, logbook: logbook },
       });
     });
   } catch (error) {
     console.error(error);
+    return res.json({ success: false, message: error.message });
   }
 });
 

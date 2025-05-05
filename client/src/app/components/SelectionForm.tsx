@@ -48,10 +48,15 @@ export const SelectionForm = (props: {
 
       const data = await response.json();
 
-      props.setVehicleData(data.data.vehicleData);
-      props.setLogbookContent(data.data.logbook);
+      if (data.success === true) {
+        props.setVehicleData(data.data.vehicleData);
+        props.setLogbookContent(data.data.logbook);
+      } else {
+        alert(data.message);
+      }
     } catch (error) {
       console.error(error);
+      alert("Error: " + error);
     }
   };
 
@@ -59,15 +64,18 @@ export const SelectionForm = (props: {
     setSelectedMake(make);
     setSelectedModel("");
     setSelectedBadge("");
+    setLogbookFile(null);
   };
 
   const handleModelChange = (model: Model) => {
     setSelectedModel(model);
     setSelectedBadge("");
+    setLogbookFile(null);
   };
 
   const handleBadgeChange = (badge: Badge) => {
     setSelectedBadge(badge);
+    setLogbookFile(null);
   };
 
   const handlePopularVehicleSelection = (
