@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import { Make, Model, Badge, PopularMake } from "../types";
 import { POPULAR_VEHICLES } from "../data";

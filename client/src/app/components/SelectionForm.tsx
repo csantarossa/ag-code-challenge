@@ -1,3 +1,4 @@
+"use client";
 import React, { useState } from "react";
 import { Badge, Make, Model, Vehicle } from "../types";
 import { MODELS } from "../data";
@@ -28,7 +29,7 @@ export const SelectionForm = (props: {
     try {
       const formData = new FormData();
       if (!logbookFile) {
-        alert("You must submit your logbook");
+        alert("You must resubmit your logbook");
         return;
       }
       formData.append("file", logbookFile);

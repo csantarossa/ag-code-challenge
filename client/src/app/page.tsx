@@ -6,7 +6,7 @@ import { Vehicle } from "./types";
 
 export default function Home() {
   const [logbookContent, setLogbookContent] = useState("");
-  const [vehicleData, setVehicleData] = useState<Vehicle | undefined>();
+  const [returnedVehicle, setReturnedVehicle] = useState<Vehicle | undefined>();
 
   return (
     <div className="flex flex-col bg-white text-black items-center justify-center h-screen font-[family-name:var(--font-geist-sans)] gap-5 pb-10">
@@ -19,11 +19,11 @@ export default function Home() {
       <div className="flex w-full h-[450px] gap-20 justify-center items-start pt-10">
         <SelectionForm
           setLogbookContent={setLogbookContent}
-          setVehicleData={setVehicleData}
+          setVehicleData={setReturnedVehicle}
         />
         <LogbookDisplay
           logbookContent={logbookContent}
-          vehicleData={vehicleData}
+          returnedVehicle={returnedVehicle}
         />
       </div>
     </div>

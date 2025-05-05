@@ -1,3 +1,4 @@
+"use client";
 import React, { SetStateAction } from "react";
 
 export const FileInput = (props: {
@@ -15,9 +16,9 @@ export const FileInput = (props: {
         onChange={(e) => {
           if (!e.target.files) {
             props.setFile(null);
-            return;
+          } else {
+            props.setFile(e.target.files[0]);
           }
-          props.setFile(e.target.files[0]);
         }}
         type="file"
         accept=".txt"
