@@ -1,6 +1,6 @@
 import React, { SetStateAction } from "react";
 
-const FileInput = (props: {
+export const FileInput = (props: {
   setFile: React.Dispatch<SetStateAction<File | null>>;
 }) => {
   return (
@@ -24,5 +24,3 @@ const FileInput = (props: {
     </>
   );
 };
-
-export default FileInput;

@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { Badge, Make, Model, Vehicle } from "../types";
-import { Dropdown } from "./dropdown";
-import FileInput from "./file-input";
 import { MODELS } from "../data";
-import PopularVehicles from "./PopularVehicles";
+import { Dropdown } from "./VehicleDropdown";
+import { FileInput } from "./FileInput";
+import { PopularVehicles } from "./PopularVehiclesSection";
 
 export const SelectionForm = (props: {
   setVehicleData: React.Dispatch<React.SetStateAction<Vehicle | undefined>>;

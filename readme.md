@@ -46,3 +46,8 @@
 
 - https://www.w3schools.com/tags/tag_pre.asp
 - https://developer.mozilla.org/en-US/docs/Web/CSS/white-space
+
+**Typing**
+
+- https://medium.com/@turingvang/error-ts7053-element-implicitly-has-an-any-type-because-expression-of-type-string-can-t-be-3d2bc4ff711d
+- https://www.typescriptlang.org/docs/handbook/2/keyof-types.html

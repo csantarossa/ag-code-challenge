@@ -2,7 +2,7 @@ import React from "react";
 import { Make, Model, Badge, PopularMake } from "../types";
 import { POPULAR_VEHICLES } from "../data";
 
-const PopularVehicles = (props: {
+export const PopularVehicles = (props: {
   handleSelectedVehicle: (make: Make, model: Model, badge: Badge) => void;
 }) => {
   return (
@@ -27,5 +27,3 @@ const PopularVehicles = (props: {
     </div>
   );
 };
-
-export default PopularVehicles;

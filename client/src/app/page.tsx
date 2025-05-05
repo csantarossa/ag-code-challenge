@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
-import { LogbookDisplay } from "./components/logbook-display";
-import { SelectionForm } from "./components/selection-form";
+import { LogbookDisplay } from "./components/LogobookDisplay";
+import { SelectionForm } from "./components/SelectionForm";
 import { Vehicle } from "./types";
 
 export default function Home() {
