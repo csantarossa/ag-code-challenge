@@ -43,7 +43,7 @@ app.post("/upload", upload.single("file"), async (req, res) => {
     });
   } catch (error) {
     console.error(error);
-    return res.json({ success: false, message: error.message });
+    return res.status(500).json({ success: false, message: error.message });
   }
 });
 
